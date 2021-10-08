@@ -1,8 +1,11 @@
 <div class="container">
-  <app-card
-  *ngFor="let iterImage of images"
-  [image] = iterImage
-  (childEvent)="CheckCard($event)"
-></app-card>
+  <button (click)="btnClick()">Нажми</button>
+  <button (click)="btnCheck()">Проверка</button>
+  <app-card></app-card>
+<!--  <app-card-->
+<!--  *ngFor="let iterImage of images"-->
+<!--  [image] = iterImage-->
+<!--  (childEvent)="CheckCard($event)"-->
+<!--&gt;</app-card>-->
 </div>
 

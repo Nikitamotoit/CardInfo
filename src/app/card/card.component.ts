@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {StatusCard} from "../app.component";
 
 @Component({
   selector: 'app-card',
@@ -7,24 +6,18 @@ import {StatusCard} from "../app.component";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  btnClick = ""
 
-  @Input()
-  image!: StatusCard
-
-  @Output() childEvent = new EventEmitter();
   BtnOnClick(){
-    this.image.btnClick = "active"
-    setTimeout(() =>
-      {
-        this.childEvent.emit(this.image)
-      },
-      700);
+    if (this.btnClick === "")
+      this.btnClick = "active"
+    else
+      this.btnClick = ""
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.image.srcImages)
   }
 
 }
