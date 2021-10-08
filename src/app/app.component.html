@@ -1,7 +1,10 @@
 <div class="container">
-  <button (click)="btnClick()">Нажми</button>
+  <button (click)="GenCard()">Нажми</button>
   <button (click)="btnCheck()">Проверка</button>
-  <app-card></app-card>
+  <app-card
+  *ngFor="let IterCard of inform"
+  [information] = IterCard
+  ></app-card>
 <!--  <app-card-->
 <!--  *ngFor="let iterImage of images"-->
 <!--  [image] = iterImage-->

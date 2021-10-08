@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {InformCard} from "../app.component";
 
 @Component({
   selector: 'app-card',
@@ -7,6 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class CardComponent implements OnInit {
   btnClick = ""
+
+  @Input()
+  information!: InformCard
 
   BtnOnClick(){
     if (this.btnClick === "")

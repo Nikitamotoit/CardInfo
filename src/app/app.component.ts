@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 export interface InformCard{
-  infojson: JSON
+  content: String
+  title: String
 }
 
 @Component({
@@ -10,13 +11,21 @@ export interface InformCard{
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  dateJson!: JSON
 
   inform: InformCard[] = []
 
   GenCard() {
-
+    let randNum = Math.floor(Math.random() * (10 - 1) + 1)
+    // this.parseJSON(this.inform)
+    while (randNum > 0){
+      console.log(randNum)
+      this.parseJSON(this.inform)
+      randNum --
+    }
   }
+
+
+
 
   parseJSON(inform: InformCard[]) {
     var requestURL = 'https://fakerapi.it/api/v1/texts?_quantity=1&_characters=500';
@@ -28,17 +37,15 @@ export class AppComponent implements OnInit{
     request.onload = function () {
       var json = request.response;
       var dataJson = json["data"]
-      inform.push({infojson: dataJson[0].title})
-      console.log(json)
+      inform.push({content: dataJson[0].content, title: dataJson[0].title})
+      console.log(json["status"])
     }
   }
 
-  btnClick(){
-    this.parseJSON(this.inform)
-  }
-
   btnCheck(){
-    console.log(this.inform[0])
+    for(let i = 0; i < this.inform.length; i++){
+      console.log(this.inform[i])
+    }
   }
 
   ngOnInit(){
