@@ -1,0 +1,8 @@
+<div class="container">
+  <app-card
+  *ngFor="let iterImage of images"
+  [image] = iterImage
+  (childEvent)="CheckCard($event)"
+></app-card>
+</div>
+
