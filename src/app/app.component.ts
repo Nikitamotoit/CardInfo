@@ -14,13 +14,11 @@ export class AppComponent implements OnInit{
 
   inform: InformCard[] = []
 
-  GenCard() {
-    let randNum = Math.floor(Math.random() * (10 - 1) + 1)
-    // this.parseJSON(this.inform)
-    while (randNum > 0){
-      console.log(randNum)
+  GenCard(num: number) {
+    while (num > 0){
+      console.log(num)
       this.parseJSON(this.inform)
-      randNum --
+      num --
     }
   }
 
@@ -33,7 +31,6 @@ export class AppComponent implements OnInit{
     request.open('GET', requestURL);
     request.responseType = 'json';
     request.send();
-    var json = request.response
     request.onload = function () {
       var json = request.response;
       var dataJson = json["data"]
@@ -43,6 +40,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.GenCard()
+    this.GenCard(8)
   }
 }
