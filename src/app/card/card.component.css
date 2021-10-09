@@ -1,5 +1,5 @@
 .card {
-  width: 400px;
+  width: 500px;
   height: 200px;
   position: relative;
   perspective: 1000px;
@@ -7,13 +7,13 @@
 
 .front, .back {
   border: 2px solid #72c;
+  margin-right: auto;
+  padding: 10px;
   border-radius: 10px;
   background-color: grey;
   position: absolute;
-  width: 100%;
+  width: 90%;
   height: 100%;
-  left: 0;
-  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,9 +21,17 @@
   backface-visibility: hidden;
 }
 
+.front {
+  background-color: #a66565;
+}
+
 .back {
+  background-color: #a66565;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
 }
-.card:hover .front {transform: rotateY(180deg)}
-.card:hover .back {transform: rotateY(360deg)}
+.card:hover .front {
+  background-color: grey;
+  transform: rotateY(180deg);
+}
+.card:hover .back {transform: rotateY(360deg); background-color: grey;}

@@ -42,12 +42,7 @@ export class AppComponent implements OnInit{
     }
   }
 
-  btnCheck(){
-    for(let i = 0; i < this.inform.length; i++){
-      console.log(this.inform[i])
-    }
-  }
-
   ngOnInit(){
+    this.GenCard()
   }
 }
